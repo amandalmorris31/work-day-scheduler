@@ -42,37 +42,26 @@ var hourArray=[9,10,11,12,13,14,15,16,17,18,18,20,21,22,23,24];
 // for (var i = 0; i < hourArray.length; i++) {}
 
 //2. dynamically create one block/element to the page
-{/* <div class="container">
-    <div class="row">
-        <div class="input-group-prepend col-sm-12">
-            <span class="input-group-text col-sm-2">HOUR</span>
-            <textarea class="form-control col-sm-8" aria-label="With textarea"></textarea>
-            <button class="btn btn-outline-secondary col-sm-2" type="button" id="button-addon2">Submit</button>
-        </div>
-    </div>
-</div> */}
-
-
+// <div class="input-group">
+//   <div class="input-group-prepend">
+//     <span class="input-group-text">HOUR</span>
+//   </div>
+//   <textarea class="form-control" aria-label="With textarea"></textarea>
+//   <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+// </div>
 
 //var d1= document.createElement("div");
 var d1=$("<div>");
 //<div></div>
-d1.attr("class", "container col-sm-12");
-//<div class="container"></div>
-// d1.text("THIS is the outer container!");
-
+d1.attr("class", "input-group");
+//<div class="input-group"></div>
+d1.text("THIS IS Div1!");
 
 var d2=$("<div>");
 //<div></div>
-d2.attr("class", "row col-sm-12 col-lg-12");
-//<div class="row"></div>
-// d2.text("This is the row!");
-
-var d3=$("<div>");
-//<div></div>
-d3.attr("class", "input-group-prepend col-sm-12");
-//<div class="input-group-prepend col-sm-12"></div>
-
+d2.attr("class", "input-group-prepend");
+//<div class="input-group-prepend"></div>
+// d2.text("This is Div2!");
 
 var span=$("<span>");
 //<span></span>
@@ -88,29 +77,26 @@ textarea.attr("class","form-control");
 textarea.attr("aria-label","With textarea");
 //<textarea class="form-control" aria-label="With textarea"></textarea>
 
-var button= $("<button>");
+var saveBtn= $("<button>");
 //<button></button>
-button.attr("class", "btn btn-outline-secondary");
+saveBtn.attr("class", "btn btn-outline-secondary");
 //<button class="btn btn-outline-secondary"></button>
-// button.attr("id", "button-addon2");
 
 //append button to textarea?
-// textarea.append("button");
+textarea.append("button");
 
-// var img =$('<img id="saveTask">'); //Equivalent: $(document.createElement('img'))
-// img.attr('src', saveBtn.imgurl)
-// img.attr("class", "fas fa-save")
-// img.appendTo(button);//<i class="fas fa-save"></i>in font awesome
+var img =$('<img id="saveTask">'); //Equivalent: $(document.createElement('img'))
+// img.attr('src', responseObject.imgurl)
+img.appendTo('#button-addon2');//<i class="fas fa-save"></i>in font awesome
 
 
 
 //append to html
 $(".container").append(d1);
 $(d1).append(d2);
-$(d2).append(d3);
-$(d3).append(span);
+$(d2).append(span);
 $(span).append(textarea);
-$(textarea).append(button);
+$(textarea).append(saveBtn);
 
 	//2.a run a for loop to create the rest of the nine
 
@@ -119,6 +105,8 @@ $(textarea).append(button);
 			//currenttime -hourarray[i]=0 current time, add class current
 			//currenttime -hourarray[i] > 1 future, add class future
 			//currenttime -hourarray[i] <0 past,  add class past
+
+
 
 
 //3. localstorage
