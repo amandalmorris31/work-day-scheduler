@@ -49,6 +49,8 @@ var hourArray=[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 		</div>
 </div> */}
 
+//2.a run a for loop to create the rest of the hour blocks
+
 for(var i=0; i<hourArray.length; i++){
 	
 //var d1= document.createElement("div");
@@ -91,12 +93,18 @@ else {
 	}
 }
 
+//2.b (need to style the colors for present, future, past)
+			//currenttime -hourarray[i]=0 current time, add class current
+			//currenttime -hourarray[i] > 1 future, add class future
+			//currenttime -hourarray[i] <0 past,  add class past
+
+
 //<span class="input-group-text">HOUR</span>
 var textarea= $("<textarea>");
 //<textarea></textarea>
 
 // textarea.attr("class", "form-control col-sm-8 aria-label With textarea");
-
+textarea.attr("id", hourArray[i])
 
 //if current
 //if currentTime=hourarray, 
@@ -142,17 +150,38 @@ $(d3).append(button);
 	
 }
 
-	//2.a run a for loop to create the rest of the hour blocks
 
+	$(".saveBtn").click(function(event){
+		//3. localstorage
+			//3.a set data to local storage
+			
+		event.preventDefault();
+		//got the data
+		console.log($(this).siblings(".form-control").val());
+		console.log($(this).siblings(".form-control").attr("id"))
+		//save the data via local storage
+		//localStorage.setItem(hour, userinput)
+		localStorage.setItem(($(this).siblings(".form-control").attr("id")), $(this).siblings(".form-control").val());
 
-		//2.b (need to style the colors for present, future, past)
-			//currenttime -hourarray[i]=0 current time, add class current
-			//currenttime -hourarray[i] > 1 future, add class future
-			//currenttime -hourarray[i] <0 past,  add class past
+	  });
 
+	  //3.b get the data in to local storage
+	  //get location of the specific textarea
+	  $("#8").val(localStorage.getItem("8"));
+	  $("#9").val(localStorage.getItem("9"));
+	  $("#10").val(localStorage.getItem("10"));
+	  $("#11").val(localStorage.getItem("11"));
+	  $("#12").val(localStorage.getItem("12"));
+	  $("#13").val(localStorage.getItem("13"));
+	  $("#14").val(localStorage.getItem("14"));
+	  $("#15").val(localStorage.getItem("15"));
+	  $("#16").val(localStorage.getItem("16"));
+	  $("#17").val(localStorage.getItem("17"));
+	  $("#18").val(localStorage.getItem("18"));
+	  $("#19").val(localStorage.getItem("19"));
+	  $("#20").val(localStorage.getItem("20"));
+	  $("#21").val(localStorage.getItem("21"));
+	  $("#22").val(localStorage.getItem("22"));
+	  $("#23").val(localStorage.getItem("23"));
 
-//3. localstorage
-	//3.a set data to local storage
-	//3.b get the data in to local storage
-
-
+		
